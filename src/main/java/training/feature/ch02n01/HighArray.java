@@ -3,7 +3,7 @@ package training.feature.ch02n01;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class HighArray {
-    private long[] a;
+    private final long[] a;
     private int nElems; //
 
 
@@ -18,10 +18,7 @@ public class HighArray {
         for (j = 0; j < nElems; j++)
             if (a[j] == searchKey)
                 break;
-        if (j == nElems)
-            return false;
-        else
-            return true;
+        return j != nElems;
     }
 
 
@@ -31,18 +28,14 @@ public class HighArray {
     }
 
 
-    public boolean delete(long value) {
+    public void delete(long value) {
         int j;
         for (j = 0; j < nElems; j++)
             if (value == a[j])
                 break;
-        if (j == nElems)
-            return false;
-        else {
-            for (int k = j; k < nElems; k++)
-                a[k] = a[k + 1];
+        if (j != nElems) {
+            if (nElems - j >= 0) System.arraycopy(a, j + 1, a, j, nElems - j);
             nElems--;
-            return true;
         }
     }
 
@@ -50,7 +43,7 @@ public class HighArray {
     public void display() {
         for (int j = 0; j < nElems; j++)
             System.out.print(a[j] + " ");
-        System.out.println("");
+        System.out.println();
     }
 
     public long getMax() {
