@@ -1,4 +1,6 @@
-package training.feature.ch02n04;
+package training.feature.ch02n05;
+
+import java.util.Arrays;
 
 public class OrdArray {
 
@@ -8,6 +10,10 @@ public class OrdArray {
     public OrdArray(int max) {
         a = new long[max];
         nElems = 0;
+    }
+
+    public OrdArray() {
+
     }
 
     public int size() {
@@ -82,6 +88,21 @@ public class OrdArray {
         for (int j = 0; j < nElems; j++)
             System.out.print(a[j] + " ");
         System.out.println("");
+    }
+
+    public int[] merge(int[] firstArr, int[] secondArr) {
+        int[] arrMerge = new int[firstArr.length + secondArr.length];
+        for (int i = 0; i < arrMerge.length; i++) {
+            if (i < firstArr.length) {
+                arrMerge[i] = firstArr[i];
+            } else {
+                arrMerge[i] = secondArr[i - firstArr.length];
+            }
+        }
+
+        Arrays.sort(arrMerge);
+
+        return arrMerge;
     }
 
 }
