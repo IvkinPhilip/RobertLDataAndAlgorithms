@@ -1,8 +1,7 @@
 package training.feature.ch02n04;
 
 public class SolutionCh02n04 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         int maxSize = 100;
         OrdArray arr;
         arr = new OrdArray(maxSize);
@@ -17,7 +16,7 @@ public class SolutionCh02n04 {
         arr.insert(66);
         arr.insert(33);
         int searchKey = 55;
-        if( arr.find(searchKey) != arr.size() )
+        if (arr.find(searchKey) != arr.size())
             System.out.println("Found " + searchKey);
         else
             System.out.println("Can't find " + searchKey);
